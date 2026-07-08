@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's On Dinner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-sm border-bottom border-orange-subtle">
+      <div class="container py-3">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center gap-3">
+            <div class="logo-icon rounded-circle d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-utensils text-white"></i>
+            </div>
+            <div>
+              <h1 class="mb-0 fs-5 fw-bold text-dark">What's On Dinner</h1>
+              <p class="mb-0 fs-6 text-secondary">Your daily meal inspiration</p>
+            </div>
+          </div>
+
+          <!-- desktop nav -->
+          <div class="d-none d-md-flex align-items-center gap-4">
+            <button class="nav-icon-btn fs-5"><i class="fa-solid fa-bookmark"></i></button>
+            <button class="nav-icon-btn fs-5"><i class="fa-solid fa-clock-rotate-left"></i></button>
+            <button class="nav-icon-btn fs-5"><i class="fa-solid fa-gear"></i></button>
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Profile" class="profile-pic" />
+          </div>
+
+          <!-- mobile menu btn -->
+          <button id="mobile-menu-btn" class="d-md-none nav-icon-btn fs-5">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobile-menu" class="d-md-none mt-3 pb-3 border-top border-orange-subtle pt-3 d-none">
+          <div class="d-flex flex-column gap-3">
+            <button class="d-flex align-items-center nav-link-btn">
+              <i class="fa-solid fa-bookmark me-3"></i>
+              <span>Saved Recipes</span>
+            </button>
+            <button class="d-flex align-items-center nav-link-btn">
+              <i class="fa-solid fa-clock-rotate-left me-3"></i>
+              <span>Recent</span>
+            </button>
+            <button class="d-flex align-items-center nav-link-btn">
+              <i class="fa-solid fa-gear me-3"></i>
+              <span>Settings</span>
+            </button>
+            <button class="d-flex align-items-center nav-link-btn">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Profile" class="me-3" style="width:32px;height:32px;border-radius:50%;border:2px solid #fdba74;" />
+              <span>Profile</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container py-4">
+
+      <!-- Recipe Display Section -->
+      <section id="recipe-display-section" class="bg-white shadow-lg rounded-4 overflow-hidden mb-4 border border-orange-subtle d-none">
+        <div class="row g-0">
+          
+          <!-- Left side - image -->
+          <div class="col-lg-6 recipe-image-section">
+            <img id="recipe-image" class="recipe-img" src="https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=800&auto=format&fit=crop" alt="recipe image" />
+            
+            <div class="rating-badge">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-star text-warning"></i>
+                <span class="fw-semibold" id="rating-average">4.8</span>
+                <span class="text-muted small" id="rating-quantity">(234 reviews)</span>
+              </div>
+            </div>
+            
+            <div class="time-info-card">
+              <div class="row text-center">
+                <div class="col">
+                  <i class="fa-solid fa-clock text-orange-500 fs-4"></i>
+                  <p class="mb-0 fs-6 text-secondary">Prep Time</p>
+                  <p class="mb-0 fw-bold" id="prep-time-display">15 min</p>
+                </div>
+                <div class="col">
+                  <i class="fa-solid fa-fire-burner text-danger fs-4"></i>
+                  <p class="mb-0 fs-6 text-secondary">Cook Time</p>
+                  <p class="mb-0 fw-bold" id="cook-time-display">20 min</p>
+                </div>
+                <div class="col">
+                  <i class="fa-solid fa-users text-primary fs-4"></i>
+                  <p class="mb-0 fs-6 text-secondary">Servings</p>
+                  <p class="mb-0 fw-bold" id="servings-display">4 people</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side - details -->
+          <div class="col-lg-6 recipe-details-section p-4 p-lg-5">
+            
+            <!-- Title row -->
+            <div class="d-flex flex-column flex-md-row gap-3 align-items-start justify-content-between mb-4">
+              <div>
+                <div class="d-flex gap-2 mb-2">
+                  <span class="badge bg-success" id="difficulty-badge">Easy</span>
+                  <span class="badge bg-info" id="category-badge">Italian</span>
+                </div>
+                <h2 class="fs-2 fw-bold text-dark" id="recipe-name">Creamy Spaghetti Carbonara</h2>
+                <p class="fs-5 text-secondary" id="recipe-description">A classic Italian pasta dish with eggs, cheese, and pancetta</p>
+              </div>
+              <div class="d-flex gap-2 action-btns align-self-md-center">
+                <button class="action-btn"><i class="fa-solid fa-bookmark"></i></button>
+                <button class="action-btn"><i class="fa-solid fa-share-nodes"></i></button>
+              </div>
+            </div>
+
+            <!-- Time warning -->
+            <div id="time-warning" class="alert alert-danger border-start border-4 border-danger d-none">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-triangle-exclamation text-danger me-3 fs-4"></i>
+                <div>
+                  <p class="fw-semibold mb-0">Extended Preparation Time</p>
+                  <small class="text-danger">This recipe requires more than 45 minutes to prepare. Plan accordingly!</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="border-bottom border-gray-200 mb-4">
+              <div class="row g-0">
+                <div class="col-3">
+                  <button class="tab-btn fs-6 active w-100" data-tab="ingredients">
+                    <i class="fa-solid fa-list-check me-1"></i><span class="d-none d-md-inline">Ingredients</span>
+                  </button>
+                </div>
+                <div class="col-3">
+                  <button class="tab-btn fs-6 w-100" data-tab="instructions">
+                    <i class="fa-solid fa-book-open me-1"></i><span class="d-none d-md-inline">Instructions</span>
+                  </button>
+                </div>
+                <div class="col-3">
+                  <button class="tab-btn fs-6 w-100" data-tab="nutrition">
+                    <i class="fa-solid fa-chart-pie me-1"></i><span class="d-none d-md-inline">Nutrition</span>
+                  </button>
+                </div>
+                <div class="col-3">
+                  <button class="tab-btn fs-6 w-100" data-tab="tips">
+                    <i class="fa-solid fa-lightbulb me-1"></i><span class="d-none d-md-inline">Chef's Tips</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content-wrapper">
+              
+              <!-- Ingredients Tab -->
+              <div id="ingredients-tab-content" class="tab-panel">
+                <div class="ingredients-box">
+                  <ul class="list-unstyled mb-0" id="ingredients-list">
+                    <li class="ingredient-item">
+                      <span class="ingredient-num">1</span>
+                      <span>400g spaghetti pasta</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Instructions Tab -->
+              <div id="instructions-tab-content" class="tab-panel d-none">
+                <div id="instructions-list">
+                  <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                      <p>Step instruction here</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nutrition Tab -->
+              <div id="nutrition-tab-content" class="tab-panel d-none">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-orange-subtle"><i class="fa-solid fa-fire text-orange-500"></i></div>
+                        <span>Calories</span>
+                      </div>
+                      <span class="fw-bold" id="calories-value">520 kcal</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-primary-subtle"><i class="fa-solid fa-dumbbell text-primary"></i></div>
+                        <span>Protein</span>
+                      </div>
+                      <span class="fw-bold" id="protein-value">28g</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-warning-subtle"><i class="fa-solid fa-wheat-awn text-warning"></i></div>
+                        <span>Carbohydrates</span>
+                      </div>
+                      <span class="fw-bold" id="carbs-value">62g</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-danger-subtle"><i class="fa-solid fa-droplet text-danger"></i></div>
+                        <span>Fat</span>
+                      </div>
+                      <span class="fw-bold" id="fat-value">18g</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-success-subtle"><i class="fa-solid fa-seedling text-success"></i></div>
+                        <span>Fiber</span>
+                      </div>
+                      <span class="fw-bold" id="fiber-value">3g</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="nutrition-card">
+                      <div class="d-flex align-items-center">
+                        <div class="nutrition-icon bg-pink-subtle"><i class="fa-solid fa-cube text-pink"></i></div>
+                        <span>Sodium</span>
+                      </div>
+                      <span class="fw-bold" id="sodium-value">680mg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tips Tab -->
+              <div id="tips-tab-content" class="tab-panel d-none">
+                <div id="tips-list">
+                  <div class="tip-card">
+                    <i class="fa-solid fa-check-circle text-warning me-3 mt-1"></i>
+                    <p class="mb-0">Use room temperature eggs for a smoother sauce consistency</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Try Another Recipe Button -->
+            <div class="d-flex align-items-center mt-4 pt-3 border-top border-gray-200">
+              <button id="try-another-btn" class="btn try-recipe-btn px-3 px-md-4 py-2 py-md-3">
+                <i class="fa-solid fa-rotate me-2"></i>Try Another Recipe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
